@@ -1,7 +1,6 @@
 ## Welcome to GitHub Pages
-## https://aleksandra08.github.io/fe_on_jan19_Starodub/
 
-You can use the [editor on GitHub](https://github.com/Aleksandra08/fe_on_jan19_Starodub/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+You can use the [editor on GitHub](https://github.com/mate-academy/phone-catalogue-static/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
@@ -31,7 +30,7 @@ For more details see [GitHub Flavored Markdown](https://guides.github.com/featur
 
 ### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Aleksandra08/fe_on_jan19_Starodub/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mate-academy/phone-catalogue-static/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
