@@ -1,16 +1,37 @@
-export default class PhonesCatalog {
-    constructor({element, phones = []}) {
-        this._element = element;
+import Component from './component.js';
+
+export default class PhonesCatalog extends Component {
+    constructor({
+                    element,
+                    phones = [],
+                    onPhoneSelected = () => {
+                    }
+                }) {
+        super({element});
         this._phones = phones;
+        this.onPhoneSelected = onPhoneSelected;
         this._render();
+
+        this._element.addEventListener('click', (event) => {
+            const phoneEl = event.target.closest('[data-element = "phone-element"]');
+            if (!phoneEl) {
+                return;
+            }
+            const phoneId = phoneEl.dataset.phoneId;
+            this.onPhoneSelected(phoneId);
+        })
     }
 
     _render() {
         this._element.innerHTML = `
-        <ul class="phones">
+        <ul class="phones" >
         ${
             this._phones.map(phone => `
-            <li class="thumbnail">
+            <li 
+            class="thumbnail" 
+            data-phone-id=${phone.id}
+            data-element = "phone-element"
+            >
                 <a href="#!/phones/motorola-xoom-with-wi-fi" class="thumb">
                   <img alt="${phone.name}" src="${phone.imageUrl}">
                 </a>
