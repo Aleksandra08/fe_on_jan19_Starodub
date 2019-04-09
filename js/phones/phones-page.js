@@ -2,7 +2,6 @@ import PhoneViewer from "./components/phone-viewer.js"
 import PhonesCatalog from "./components/phones-catalog.js";
 import PhonesService from "./services/phones-service.js"
 
-
 export default class PhonesPage {
     constructor({element}) {
         this._element = element;
@@ -18,8 +17,7 @@ export default class PhonesPage {
         });
         this._viewer = new PhoneViewer({
             element: this._element.querySelector(('[data-component ="phone-viewer"]')),
-            phones: PhonesService.getAll(),
-            back: () => {
+            onBack: () => {
                 this._catalog.show();
                 this._viewer.hide()
             }
