@@ -6,26 +6,15 @@ export default class PhonesCatalog extends Component {
                     phones = []
                 }) {
         super({element});
-        this._callbackMap = {};
+
         this._phones = phones;
         this._render();
+
         this.on('click', '[data-element="details-link"]', () => {
             const phoneEl = event.target.closest('[data-element = "phone-element"]');
             const phoneId = phoneEl.dataset.phoneId;
             this.emit('phone-selected', phoneId);
         })
-    }
-
-    emit(eventName, data) {
-        const callBack = this._callbackMap[eventName];
-        if (!callBack) {
-            return;
-        }
-        callBack(data);
-    }
-
-    subscribe(eventName, callback) {
-        this._callbackMap[eventName] = callback;
     }
 
     _render() {
