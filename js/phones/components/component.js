@@ -1,6 +1,6 @@
 export default class Component {
     constructor({element}) {
-        this._callbackMap ={};
+        this._callbackMap = {};
         this._element = element;
     }
 
@@ -15,16 +15,30 @@ export default class Component {
     }
 
     emit(eventName, data) {
-        const callBack = this._callbackMap[eventName];
-        if (!callBack) {
+        const callbacks = this._callbackMap[eventName];
+        if (!callbacks) {
             return;
         }
-        callBack(data);
+        callbacks.forEach((cb) => {
+            cb(data)
+        });
     }
 
     subscribe(eventName, callback) {
-        this._callbackMap[eventName] = callback;
+        if (!this._callbackMap[eventName]) {
+            this._callbackMap[eventName] = [];
+        }
+        this._callbackMap[eventName].push(callback);
     }
+
+    unsubscribe(eventName, callbackToRemove) {
+        const callbacks = this._callbackMap[eventName];
+        if (callbacks) {
+            this._callbackMap[eventName] = callbacks.
+            filter((cb) => cb !== callbackToRemove);
+        }
+    }
+
     hide() {
         this._element.hidden = true
     }
