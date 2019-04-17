@@ -26,9 +26,10 @@ export default class PhonesPage {
             this._viewer.show(phoneDetails)
         });
 
-        this._catalog.subscribe('add-to-cart', (phone) => {
-            this._cart._addToCart(phone)
-        });
+        this._catalog.subscribe('add-phone', (phoneId) => {
+            this._cart.addToCart(phoneId);
+        })
+
     }
 
     _initViewer() {
@@ -41,9 +42,9 @@ export default class PhonesPage {
             this._viewer.hide();
         });
 
-        this._viewer.subscribe('add-to-cart', (phone) => {
-            this._cart._addToCart(phone)
-        });
+        this._viewer.subscribe('add-phone', (phoneId) => {
+            this._cart.addToCart(phoneId);
+        })
     }
 
     _initCart() {
