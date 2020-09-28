@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title> Phones App </title>
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-  <link rel="stylesheet" href="app.css">
-  <script src="./js/app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Phones App</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1> Phones App </h1>
-  </header>
-
-  <div class="container-fluid">
-    <div data-component="App">
-      <h3>Content will be here</h3>
+<div class="wrapper">
+    <header>
+        <nav class="navigation">
+            <div class="navigation__block">
+                <ul class="navigation__menu" id="menu">
+                    <li class="navigation__item">
+                        <a href="catalog.html" class="navigation__link">Catalog</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="catalog.html" class="navigation__link">Shopping cart</a>
+                    </li>
+                </ul>
+                <div class="navigation__controls">
+                    <input type="checkbox" id="checkboxToggle" class="checkbox visuallyHidden">
+                    <label for="checkboxToggle" id="button">
+                        <div class="hamburger">
+                            <span class="hamburger__bar bar1"></span>
+                            <span class="hamburger__bar bar2"></span>
+                            <span class="hamburger__bar bar3"></span>
+                            <span class="hamburger__bar bar4"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="title-box">
+        <div class="bubbles"><h1> Welcome to the phones shop! </h1></div>
+        <a class="hover-btn" href="catalog.html">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Choose phone</a>
     </div>
-  </div>
-
-  <footer>Footer</footer>
+</div>
+<footer class="footer">
+    <h1 class="footer__title"> Apply </h1>
+    <div class="form">
+        <form action="#">
+            <input class="form-input" type="text" placeholder="Name">
+            <input class="form-input" type="email" placeholder="Email">
+            <textarea class="form-message" name="text" placeholder="Your Message"></textarea>
+            <input value="Send" type="button" class="box-form__btn btn js-button">
+        </form>
+    </div>
+</footer>
+<div class="overlay js-overlay">
+    <div class="popup js-popup">
+        <h1> Thank you! </h1>
+        <h3> Your message was sent successfully. We'll contact you soon. </h3>
+        <div class="close-popup js-close"></div>
+    </div>
+</div>
 </body>
 </html>
