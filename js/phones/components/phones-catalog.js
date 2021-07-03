@@ -1,20 +1,29 @@
 import Component from './component.js';
 
 export default class PhonesCatalog extends Component {
-    constructor({
-                    element,
-                    phones = []
-                }) {
+    constructor({element}) {
         super({element});
+        this._phones = [];
 
-        this._phones = phones;
         this._render();
 
         this.on('click', '[data-element="details-link"]', () => {
             const phoneEl = event.target.closest('[data-element = "phone-element"]');
             const phoneId = phoneEl.dataset.phoneId;
             this.emit('phone-selected', phoneId);
-        })
+        });
+
+        this.on('click', '[data-element="add-to-cart"]', (event) => {
+            const phoneEl = event.target.closest('[data-element="phone-element"]');
+            const phoneId = phoneEl.dataset.phoneId;
+            this.emit('add-phone', phoneId);
+        });
+    }
+
+    show(phones) {
+        this._phones = phones;
+        super.show();
+        this._render()
     }
 
     _render() {
@@ -35,7 +44,9 @@ export default class PhonesCatalog extends Component {
                 </a>
     
                 <div class="phones__btn-buy-wrapper">
-                  <a class="btn btn-success">
+                  <a class="btn btn-success"
+                  data-element="add-to-cart"
+                  >
                     Add
                   </a>
                 </div>
